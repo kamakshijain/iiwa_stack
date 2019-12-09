@@ -12,8 +12,9 @@
     <arg name="robot_name" default="iiwa"/>
     <!-- Model of the iiwa to use : iiwa7, iiwa14 -->
     <arg name="model" default="iiwa7"/>
+    <arg name="gui" default="true"/>
     <arg name="rviz" default="true" />
-    
+    <arg name="Color" default="RB"/>
     <remap from="/$(arg hardware_interface)_trajectory_controller/follow_joint_trajectory" 
            to="/$(arg robot_name)/$(arg hardware_interface)_trajectory_controller/follow_joint_trajectory" />
     <remap from="robot_description" to="/$(arg robot_name)/robot_description" /> 
@@ -27,6 +28,8 @@
             <arg name="hardware_interface" value="$(arg hardware_interface)"/>
             <arg name="robot_name" value="$(arg robot_name)" />
             <arg name="model" value="$(arg model)"/>
+            <arg name="gui" value="$(arg gui)" />
+            <arg name="Color" value="$(arg Color)"/> 
         </include>
     </group>
     

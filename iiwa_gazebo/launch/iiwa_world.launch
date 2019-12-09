@@ -12,17 +12,105 @@
     <arg name="hardware_interface" default="PositionJointInterface"/>
     <arg name="robot_name" default="iiwa" />
     <arg name="model" default="iiwa7"/>
-    
+    <arg name="Color" default="RB"/>
     <!-- We resume the logic in empty_world.launch, changing only the name of the world to be launched -->
+
+    <!-- For Red and Blue Disc Combination -->
+
+    <group if = "$(eval Color == 'RB')" >
     <include file="$(find gazebo_ros)/launch/empty_world.launch">
-        <arg name="world_name" value="$(find iiwa_gazebo)/worlds/iiwa.world"/>
+        <!-- <arg name="world_name" value="$(find iiwa_gazebo)/worlds/iiwa.world"/> -->
+        <arg name="world_name" value="$(find segregator)/worlds/RB"/>
         <arg name="debug" value="$(arg debug)" />
         <arg name="gui" value="$(arg gui)" />
         <arg name="paused" value="$(arg paused)"/>
         <arg name="use_sim_time" value="$(arg use_sim_time)"/>
         <arg name="headless" value="$(arg headless)"/>
     </include>
+    </group>
+
+    <!-- For Blue and Red Disc Combination -->
+
+    <group if = "$(eval Color == 'BR')" >
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <!-- <arg name="world_name" value="$(find iiwa_gazebo)/worlds/iiwa.world"/> -->
+        <arg name="world_name" value="$(find segregator)/worlds/BR"/>
+        <arg name="debug" value="$(arg debug)" />
+        <arg name="gui" value="$(arg gui)" />
+        <arg name="paused" value="$(arg paused)"/>
+        <arg name="use_sim_time" value="$(arg use_sim_time)"/>
+        <arg name="headless" value="$(arg headless)"/>
+    </include>
+    </group>
+
+    <!-- For Red and Red Disc Combination -->
+
+    <group if = "$(eval Color == 'RR')" >
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <!-- <arg name="world_name" value="$(find iiwa_gazebo)/worlds/iiwa.world"/> -->
+        <arg name="world_name" value="$(find segregator)/worlds/RR"/>
+        <arg name="debug" value="$(arg debug)" />
+        <arg name="gui" value="$(arg gui)" />
+        <arg name="paused" value="$(arg paused)"/>
+        <arg name="use_sim_time" value="$(arg use_sim_time)"/>
+        <arg name="headless" value="$(arg headless)"/>
+    </include>
+    </group>
+
+    <!-- For Blue and Blue Disc Combination -->
     
+    <group if = "$(eval Color == 'BB')" >
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <!-- <arg name="world_name" value="$(find iiwa_gazebo)/worlds/iiwa.world"/> -->
+        <arg name="world_name" value="$(find segregator)/worlds/BB"/>
+        <arg name="debug" value="$(arg debug)" />
+        <arg name="gui" value="$(arg gui)" />
+        <arg name="paused" value="$(arg paused)"/>
+        <arg name="use_sim_time" value="$(arg use_sim_time)"/>
+        <arg name="headless" value="$(arg headless)"/>
+    </include>
+    </group>
+
+    <!-- For Green and Blue Disc Combination -->
+    <group if = "$(eval Color == 'BG')" >
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <!-- <arg name="world_name" value="$(find iiwa_gazebo)/worlds/iiwa.world"/> -->
+        <arg name="world_name" value="$(find segregator)/worlds/BG"/>
+        <arg name="debug" value="$(arg debug)" />
+        <arg name="gui" value="$(arg gui)" />
+        <arg name="paused" value="$(arg paused)"/>
+        <arg name="use_sim_time" value="$(arg use_sim_time)"/>
+        <arg name="headless" value="$(arg headless)"/>
+    </include>
+    </group>
+
+    <!-- For Green and Orange Disc Combination -->
+    <group if = "$(eval Color == 'YG')" >
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <!-- <arg name="world_name" value="$(find iiwa_gazebo)/worlds/iiwa.world"/> -->
+        <arg name="world_name" value="$(find segregator)/worlds/YG"/>
+        <arg name="debug" value="$(arg debug)" />
+        <arg name="gui" value="$(arg gui)" />
+        <arg name="paused" value="$(arg paused)"/>
+        <arg name="use_sim_time" value="$(arg use_sim_time)"/>
+        <arg name="headless" value="$(arg headless)"/>
+    </include>
+    </group>
+
+    <!-- For Red and Green Disc Combination -->
+    <group if = "$(eval Color == 'RG')" >
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <!-- <arg name="world_name" value="$(find iiwa_gazebo)/worlds/iiwa.world"/> -->
+        <arg name="world_name" value="$(find segregator)/worlds/RG"/>
+        <arg name="debug" value="$(arg debug)" />
+        <arg name="gui" value="$(arg gui)" />
+        <arg name="paused" value="$(arg paused)"/>
+        <arg name="use_sim_time" value="$(arg use_sim_time)"/>
+        <arg name="headless" value="$(arg headless)"/>
+    </include>
+    </group>
+
+
     <!-- Load the URDF with the given hardware interface into the ROS Parameter Server -->
     <include file="$(find iiwa_description)/launch/$(arg model)_upload.launch">
         <arg name="hardware_interface" value="$(arg hardware_interface)"/>
@@ -35,4 +123,3 @@
     
     
     </launch>
-    
